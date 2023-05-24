@@ -1,26 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// App.tsx
 
-function App() {
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { RootState } from './store/store';
+
+import LoginPage from './pages/LoginPage';
+import EditTaskPage from './pages/EditTaskPage';
+import ViewTasksPage from './pages/ViewTasksPage';
+import JokesSpotPage from './pages/JokesSpotPage';
+
+const App = () => {
+  const isAuthenticated = useSelector((state: RootState) => state.auth.isAuthenticated);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        {isAuthenticated ? (
+          <>
+            <Route path="/editTask" element={<EditTaskPage />} />
+            <Route path="/viewTasks" element={<ViewTasksPage />} />
+            <Route path="/jokesSpot" element={<JokesSpotPage />} />
+          </>
+        ) : (
+          <Route path="*" element={<Navigate to="/login" />} />
+        )}
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
