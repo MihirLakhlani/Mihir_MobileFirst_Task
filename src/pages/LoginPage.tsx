@@ -13,9 +13,6 @@ const LoginPage: React.FC = () => {
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Perform authentication logic here (e.g., API request)
-    // Replace the following code with your authentication implementation
-
     if (username === 'admin' && password === 'password') {
       dispatch(login());
       history('/editTask');
