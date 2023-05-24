@@ -1,5 +1,3 @@
-// store/reducers/authReducer.ts
-
 interface AuthState {
     isAuthenticated: boolean;
   }

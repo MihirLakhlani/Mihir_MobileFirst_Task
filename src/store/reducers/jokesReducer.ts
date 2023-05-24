@@ -1,4 +1,3 @@
-// store/reducers/jokesReducer.ts
 export interface Jokee {
     id: number;
     joke: string;

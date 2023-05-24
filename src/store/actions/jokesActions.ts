@@ -1,7 +1,5 @@
-// jokesActions.ts
 
 import { Dispatch } from 'redux';
-// import {  } from '../types';
 import axios from 'axios';
 
 export const fetchJokes :any = () => {

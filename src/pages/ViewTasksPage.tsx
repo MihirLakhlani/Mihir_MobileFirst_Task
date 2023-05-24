@@ -25,7 +25,6 @@ const ViewTasksPage = () => {
 
   const handleDeleteTask = (taskId: string) => {
     dispatch(deleteTask(taskId));
-    console.log(deleteTask(taskId),"....................")
   };
 
   return (

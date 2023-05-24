@@ -1,5 +1,3 @@
-// store/store.ts
-
 import { createStore, combineReducers, applyMiddleware, AnyAction, Dispatch } from 'redux';
 import thunk, { ThunkAction, ThunkDispatch, ThunkMiddleware } from 'redux-thunk';
 import authReducer from './reducers/authReducer';
